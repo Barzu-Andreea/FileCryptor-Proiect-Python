@@ -49,14 +49,19 @@ if __name__ == '__main__':
 
     # check if the original file and the decrypted one are the same
     path = r'C:\Users\user\Desktop\test\decrypt'
-    with open(path, 'rb') as opened_file:
-        content = opened_file.read()
-        md5 = hashlib.md5()
-        md5.update(content)
-    path1 = r'C:\Users\user\Desktop\test\proiect.txt'
-    with open(path1, 'rb') as opened_file1:
-        content1 = opened_file1.read()
-        md5new = hashlib.md5()
-        md5new.update(content1)
-    if md5.hexdigest() == md5new.hexdigest():
-        print("the encryption and decryption worked")
+    try:
+        with open(path, 'rb') as opened_file:
+            content = opened_file.read()
+            md5 = hashlib.md5()
+            md5.update(content)
+
+        path1 = r'C:\Users\user\Desktop\test\proiect.txt'
+        with open(path1, 'rb') as opened_file1:
+            content1 = opened_file1.read()
+            md5new = hashlib.md5()
+            md5new.update(content1)
+        if md5.hexdigest() == md5new.hexdigest():
+            print("the encryption and decryption worked")
+    except:
+        print("Something went wrong")
+
